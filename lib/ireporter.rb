@@ -1,5 +1,5 @@
 require "ireporter/version"
 
 module Ireporter
-  # Your code goes here...
+  autoload :Reporter, 'ireporter/reporter'
 end
