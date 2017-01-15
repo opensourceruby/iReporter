@@ -1,5 +1,8 @@
 # Ireporter
 
+This gem is alternative to  **iTunes Connect Reporter** a java library used to fetch sales and finance reports.
+
+This gem is written considering requirement of Rails app, but can be used as a regular ruby gem.
 
 
 
@@ -21,6 +24,34 @@ Or install it yourself as:
 
 ## Usage
 
+Create a reporter object
+
+```
+reporterObj= Ireporter::Reporter.new('user id','password')
+```
+
+And use below awesome methods, and see the Magic happen.
+
+Get the status of services (Sales and Finance) 
+
+```
+reporterObj.get_status('Sales')
+reporterObj.get_status('Finance')
+
+```
+
+Fetch the sales report
+
+```
+report_data=reporterObj.get_sales_report('daily','20160818')
+```
+
+And then wrap it inside Array
+
+```
+reporterObj.wrap(report_data)
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/nakshay/ireporter. 
@@ -29,11 +60,13 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/naksha
 ## Contributors
 
 Akshay Naik
+
 Rushikesh Kawadkar
 
 
+## Contributors
 
-						The MIT License (MIT)
+The MIT License (MIT)
 
 Copyright (c) 2017 Akshay Naik
 
