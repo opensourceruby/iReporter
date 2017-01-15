@@ -11,7 +11,7 @@ This gem is written considering requirement of Rails app, but can be used as a r
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ireporter'
+gem 'ireporter', '~> 0.1.1'
 ```
 
 And then execute:
