@@ -64,7 +64,7 @@ Akshay Naik
 Rushikesh Kawadkar
 
 
-## Contributors
+## License
 
 The MIT License (MIT)
 
