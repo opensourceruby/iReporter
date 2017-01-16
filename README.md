@@ -27,6 +27,7 @@ Or install it yourself as:
 Create a reporter object
 
 ```
+require 'ireporter'
 reporterObj= Ireporter::Reporter.new('user id','password')
 ```
 
