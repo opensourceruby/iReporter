@@ -1,4 +1,4 @@
-# Ireporter
+# Ireporter ![](http://ruby-gem-downloads-badge.herokuapp.com/ireporter)
 
 This gem is the Ruby alternative to  **iTunes Connect Reporter** written in java library used to fetch sales and finance reports.
 Ireporter allows fetching data into string and also be wrapped in Arrays without downloading and extracting zip files.
