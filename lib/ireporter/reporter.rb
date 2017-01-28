@@ -15,6 +15,8 @@ URL_FINANCE = 'https://reportingitc-reporter.apple.com/reportservice/finance/v1'
 
 DATE_TYPE_DAILY = "Daily"
 DATE_TYPE_WEEKLY = "Weekly"
+DATE_TYPE_MONTHLY = "Monthly"
+DATE_TYPE_YEARLY = "Yearly"
 
 
 #constructor
@@ -51,7 +53,7 @@ DATE_TYPE_WEEKLY = "Weekly"
   if response.headers[:"errormsg"]
      raise "vendor number not found"
    else response.headers[:"filename"]
-     return response.body
+     return response.body.chomp
     end
  end
 

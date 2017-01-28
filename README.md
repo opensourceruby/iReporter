@@ -27,7 +27,8 @@ Or install it yourself as:
 Create a reporter object
 
 ```
-reporterObj= Ireporter::Reporter.new('user id','password')
+include Ireporter 
+reporterObj= Reporter.new('user id','password')
 ```
 
 And use below awesome methods, and see the Magic happen.
@@ -43,7 +44,17 @@ reporterObj.get_status('Finance')
 Fetch the sales report
 
 ```
-report_data=reporterObj.get_sales_report('daily','20160818')
+report_data=reporterObj.get_sales_report(Reporter::DATE_TYPE_DAILY,'20160818')
+```
+
+Date types 
+
+```
+DATE_TYPE_DAILY    (YYYYMMDD)
+DATE_TYPE_WEEKLY   (YYYYMMDD) => DD should be Sunday of the Week
+DATE_TYPE_MONTHLY  (YYYYMM)
+DATE_TYPE_YEARLY   (YYYY)
+
 ```
 
 And then wrap it in the Array
