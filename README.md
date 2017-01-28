@@ -16,7 +16,7 @@ We are still working on extracting Financial report feature and will be added in
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ireporter', '~> 0.1.1'
+gem 'ireporter', '~> 0.1.2'
 ```
 
 And then execute:
