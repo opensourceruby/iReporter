@@ -14,7 +14,6 @@ Currently Ireporter allows to fetch the status of Sales and Finance reports, fet
 We are still working on extracting Financial report feature and will be added in next release.
 
 
-
 ## Installation
 
 Add this line to your application's Gemfile:
