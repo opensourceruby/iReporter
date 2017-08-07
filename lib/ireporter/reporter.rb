@@ -9,7 +9,7 @@ class Reporter
 
 
 # Constants initialization
-VERSION = '1.0'
+VERSION = '2.2'
 URL_SALES = 'https://reportingitc-reporter.apple.com/reportservice/sales/v1'
 URL_FINANCE = 'https://reportingitc-reporter.apple.com/reportservice/finance/v1'
 
@@ -21,10 +21,11 @@ DATE_TYPE_YEARLY = "Yearly"
 
 #constructor
 
- def initialize(username,password)
+def initialize(username,password,accesstoken)
   @username = username
-  @password = password 
- end
+  @password = password
+  @accesstoken = accesstoken 
+end
 
  def get_status (service)
  
@@ -57,7 +58,54 @@ DATE_TYPE_YEARLY = "Yearly"
     end
  end
 
- def get_sales_report(datetype,reportdate)
+def generate_token
+
+  command = '[p=Reporter.properties, Sales.generateToken]'
+
+  parameters = build_json_request(command)
+  response = post_request(parameters,URL_SALES)
+  service_request_id = response.headers[:service_request_id]
+
+  opt_param = "&isExistingToken=Y&requestId=" + service_request_id
+  parameters = build_json_request(command) + opt_param
+  response = post_request(parameters,URL_SALES)
+
+  if response.headers[:"errormsg"]
+   raise "token error"
+ else response.headers[:"filename"]
+   return response.body.chomp
+ end
+end
+
+def view_token
+
+  command = '[p=Reporter.properties, Sales.viewToken]'
+
+  parameters = build_json_request(command)
+  response = post_request(parameters,URL_SALES)
+
+  if response.headers[:"errormsg"]
+   raise "token error"
+ else response.headers[:"filename"]
+   return response.body.chomp
+ end
+end
+
+def delete_token
+
+  command = '[p=Reporter.properties, Sales.deleteToken]'
+
+  parameters = build_json_request(command)
+  response = post_request(parameters,URL_SALES)
+
+  if response.headers[:"errormsg"]
+   raise "token error"
+ else response.headers[:"filename"]
+   return response.body.chomp
+ end
+end
+
+def get_sales_report(datetype,reportdate)
 
 
   datetype  ||= DATE_TYPE_DAILY
@@ -78,17 +126,17 @@ DATE_TYPE_YEARLY = "Yearly"
     else
      raise "no data returned from itunes: #{response.body}"
     end
- end
+end
 
 
- def build_json_request(command)
+def build_json_request(command)
 
-  request_data = { :userid => @username ,:queryInput => command, :version => VERSION,:password => @password}
+  request_data = { :userid => @username ,:queryInput => command, :version => VERSION,:password => @password, :accesstoken => @accesstoken}
   #Convert request paramters in JSON format 
   request_data=request_data.to_json 
 
   return 'jsonRequest='+ request_data
- end
+end
 
 
  def post_request(parameters,url)
