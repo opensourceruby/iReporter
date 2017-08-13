@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["akshaynaik93@gmail.com"]
 
   spec.summary       = "ITC Reporter for apple reporting service"
-  spec.homepage      = "https://github.com/nakshay/iReporter"
+  spec.homepage      = "https://github.com/opensourceruby/iReporter"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
