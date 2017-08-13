@@ -10,7 +10,7 @@ Ireporter takes username and password for iTunes Connector and makes JSON reques
 This gem is written considering requirement of Rails app, but can be used as a regular ruby gem.
 
 
-Currently Ireporter allows to fetch the status of Sales and Finance reports, fetch the vendor number and extracts the sales reports.
+Currently Ireporter allows to Generate Access Token, View Access Token, Delete Access Token, fetch the status of Sales and Finance reports, fetch the vendor number and extracts the sales reports.
 We are still working on extracting Financial report feature and will be added in next release.
 
 
@@ -19,7 +19,7 @@ We are still working on extracting Financial report feature and will be added in
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ireporter', '~> 0.1.2'
+gem 'ireporter', '~> 0.2.3'
 ```
 
 And then execute:
@@ -39,15 +39,19 @@ require 'ireporter'
 
 include Ireporter 
 
-reporterObj= Reporter.new('user id','password')
+reporterObj = Reporter.new('apple id','password', 'access_token')
 
 ```
+**If you have not yet generated access token, then use access_token = nil in above command.**
 
 And use below awesome methods, and see the Magic happen.
 
 Get the status of services (Sales and Finance) 
 
 ```
+reporterObj.view_token
+reporterObj.generate_token
+reporterObj.delete_token
 reporterObj.get_status('Sales')
 reporterObj.get_status('Finance')
 
