@@ -1,9 +1,5 @@
 # Ireporter ![](http://ruby-gem-downloads-badge.herokuapp.com/ireporter?type=total)
 
-Donate Us.
-
-<div class="pm-button"><a href="https://www.payumoney.com/paybypayumoney/#/310753"><img src="https://www.payumoney.com//media/images/payby_payumoney/buttons/111.png" /></a></div>
-
 Ireporter is an Ruby alternative to  **iTunes Connect Reporter** a java library provided by Apple, which is used to fetch sales and finance reports.
 Ireporter takes username and password for iTunes Connector and makes JSON request to get the response from ITC, unlike Apple's Reporter Ireporter removes the overhead of unzipping the archive file to get the data form text file, instead it gives the data in string data type, which can be wrapped into Array of hashses using Ireporter's wrap method. Later on can be converted in to JSON and other formats using ruby methods for conversion as per convenience.
 
